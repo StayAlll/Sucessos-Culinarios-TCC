@@ -170,8 +170,11 @@ jQuery(window).on('load', function () {
 
     }
 });
-
-// Add a script to hide the splash screen after a few seconds
-setTimeout(function() {
-    document.querySelector('.splash-screen').style.display = 'none';
-  }, ); // adjust the timeout to fit your needs
+     / defini o tempo da tela de splash /
+document.addEventListener('DOMContentLoaded', function() {
+    const splashScreen = document.querySelector('.splash-screen');
+    splashScreen.classList.add('splash-disappear');
+    setTimeout(function() {
+      splashScreen.style.display = 'none';
+    }, 1000);
+  });

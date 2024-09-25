@@ -1846,61 +1846,42 @@ p {
     .blog-box {
         padding: 20px;
     }
-       /* tela de Splash */
-    .splash-screen {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgb(165, 33, 33); /* or any other background color you prefer */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000; /* ensure it's on top of everything */
-      }
-    
-      .splash-background {
-        background-size: cover;
-        background-position: center;
-        height: 100%;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      
-      .splash-logo {
-        max-width: 90%; /* adjust the maximum width of the logo to your liking */
-        margin: 0 auto;
-      }
-      
-      /* Add styles to the loading animation or text */
-      .splash-loader {
-        font-size: 24px;
-        font-weight: bold;
-        color: #333;
-        animation: pulse 2s infinite; /* add a loading animation */
-        margin: 0 auto;
-        text-align: center;
-      }
-    
-      .splash-disappear {
-        opacity: 0;
-        transition: opacity 0.5s;
-      }
-      
-      @keyframes pulse {
-        0% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.2);
-        }
-        100% {
-          transform: scale(1);
-        }
- }
-}
-
+}    
+    /* tela de splash */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(219, 199, 187, 0.932); /* or any other background color you prefer*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* ensure it's on top of everything*/
+  }
   
+  .splash-background {
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .splash-logo {
+    max-width: 90%; /* adjust the maximum width of the logo to your liking*/
+    margin: 0 auto;
+  }
+  
+  .splash-loader {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    animation: pulse 2s infinite; /* add a loading animation*/
+    margin: 0 auto;
+    text-align: center;
+  }
