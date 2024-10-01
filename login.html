@@ -34,7 +34,7 @@ form.addEventListener('submit', (e) => {
 
   // Se os campos estiverem válidos, envia o formulário manualmente
   if (isValid) {
-    fetch("http://127.0.0.1:3000/Sucessos-website-main/index.html#home", {
+    fetch("http://127.0.0.1:3000/index.html#home", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
@@ -44,7 +44,7 @@ form.addEventListener('submit', (e) => {
     .then((response) => response.json())
     .then((data) => {
       if (data.success) {
-        window.location.href = "http://127.0.0.1:3000/Sucessos-website-main/index.html#home";
+        window.location.href = "http://127.0.0.1:3000/index.html#home";
       } else {
         alert('Invalid username or password');
       }
@@ -107,7 +107,7 @@ form.addEventListener('submit', (e) => {
 <body>
     <div>
       <h1 class="login-text">Login<img src="./assets/images/Sc/LogoTelaDeSplash-removebg-preview (1).png" alt="Logo"></h1>
-         <form action="http://127.0.0.1:3000/Sucessos-website-main/index.html#home" method="post">
+         <form action="http://127.0.0.1:3000/index.html#home" method="post">
          <input type="text"  name="username" placeholder="nome">
          <br><br>
          <input type="password"  name="password" placeholder="Senha">
