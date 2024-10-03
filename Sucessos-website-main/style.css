@@ -889,7 +889,20 @@ p {
 .dish-add-btn:hover {
     background: linear-gradient(145deg, #e3a92b, #ffc933);
 }
+/* 02/10 trecho novo para a informações adicionais*/
+.dish-details {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
 
+.dish-details p {
+    margin-bottom: 5px;
+}
+
+.dish-details i {
+    margin-right: 5px;
+}
 /* ************ */
 
 .xxl-title {
