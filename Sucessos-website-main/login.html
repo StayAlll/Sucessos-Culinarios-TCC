@@ -7,32 +7,53 @@
     <link rel="stylesheet" href="style.css">
         <link rel="icon" type="image/x-icon" href="./assets/images/Sc/logoSucessos-removebg-preview.png">
 
-        <script>
-            const form = document.querySelector('form');
-          
-            form.addEventListener('submit', (e) => {
-              e.preventDefault();
-              const username = document.querySelector('input[name="username"]').value;
-              const password = document.querySelector('input[name="password"]').value;
-          
-              fetch("http://127.0.0.1:3000/ProjetoSucessos-Culinários/index.html#contatos/comments", {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: `username=${username}&password=${password}`
-              })
-              .then((response) => response.json())
-              .then((data) => {
-                if (data.success) {
-                  window.location.href = "http://127.0.0.1:3000/ProjetoSucessos-Culinários/index.html#contatos/comments";
-                } else {
-                  alert('Invalid username or password');
-                }
-              })
-              .catch((error) => console.error(error));
-            });
-          </script>
+   <script>
+const form = document.querySelector('form');
+
+form.addEventListener('submit', (e) => {
+  console.log('Formulário enviado');
+  e.preventDefault(); // Previne o envio do formulário automaticamente
+  return false;
+
+  const username = document.forms[0].username.value;
+  const password = document.forms[0].password.value;
+
+  let isValid = true;
+
+  // Verifica se o campo nome está vazio
+  if (username.trim() === '') {
+    alert('Por favor, preencha o campo de nome');
+    isValid = false;
+  }
+
+  // Verifica se a senha tem pelo menos 8 caracteres
+  if (password.length < 8) {
+    alert('A senha deve conter pelo menos 8 caracteres');
+    isValid = false;
+  }
+
+  // Se os campos estiverem válidos, envia o formulário manualmente
+  if (isValid) {
+    fetch("http://127.0.0.1:3000/index.html#home", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: `username=${username}&password=${password}`
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.success) {
+        window.location.href = "http://127.0.0.1:3000/index.html#home";
+      } else {
+        alert('Invalid username or password');
+      }
+    })
+    .catch((error) => console.error(error));
+  }
+});
+
+  </script>
 
     <style>
         body{
@@ -57,7 +78,7 @@
     
         }
         button{
-            background-color: blueviolet;
+            background-color: rgb(74, 9, 134);
             padding: 15px;
             width: 100%;
             border-radius: 10px;
@@ -76,17 +97,20 @@
             top: -0px;
             right: -0;
         }
+        .login-text{
+          color: rgb(252, 216, 200);
+        }
       
     </style>
 </head>
 
 <body>
     <div>
-         <h1>Login<img src="./assets/images/Sc/logoSucessos2.jpg" alt="Logo"></h1>
-         <form action="http://127.0.0.1:3000/ProjetoSucessos-Culinários/index.html#contatos/comments" method="post">
-         <input type="text" placeholder="nome">
+      <h1 class="login-text">Login<img src="./assets/images/Sc/logoSucessos-removebg-preview.png" alt="Logo"></h1>
+         <form action="http://127.0.0.1:3000/index.html#home" method="post">
+         <input type="text"  name="username" placeholder="nome">
          <br><br>
-         <input type="password" placeholder="Senha">
+         <input type="password"  name="password" placeholder="Senha">
          <br><br>
          <button>Enviar</button>
     </div>
@@ -102,5 +126,3 @@
 
    
     
-</body>
-</html>
